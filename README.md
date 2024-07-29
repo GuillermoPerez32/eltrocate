@@ -10,7 +10,10 @@ Eltrocate is a web application that allows users to easily check the current exc
 
 -   Currency Conversion: Users can convert between USD, MLC, and CUP using the latest exchange rates.
 -   Historical Data: Eltrocate provides historical exchange rate data, allowing users to track currency fluctuations over time.
--   User-Friendly Interface: The application offers a simple and intuitive interface, making it easy for users to navigate and access the information they need.
+-   View posts about the situation in Cuba: Users can view posts about the situation in Cuba and the impact on the economy.
+-   User Authentication: Eltrocate supports user authentication, allowing users to create accounts and log in to access additional features like commenting and liking posts.
+-   Comment posts: Users can comment on posts to share their thoughts and opinions.
+-   Like posts: Users can like posts to show their support or agreement.
 
 ## Installation
 
@@ -18,8 +21,21 @@ To install and run Eltrocate locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/GuillermoPerez32/eltrocate.git`
 2. Navigate to the project directory: `cd eltrocate`
-3. Install dependencies: `npm install`
-4. Start the application: `npm start`
+3. Install laravel dependencies: `composer install`
+4. Install npm dependencies: `npm install`
+5. Create a `.env` file by copying the `.env.example` file: `cp .env.example .env`
+6. Generate an application key: `php artisan key:generate`
+7. Create a new database and update the `.env` file with your database credentials
+8. Run the database migrations: `php artisan migrate`
+9. Seed the database with initial data: `php artisan db:seed`
+
+## Running the Application
+
+To run Eltrocate locally, use the following command:
+
+```bash
+php artisan serve
+```
 
 ## Usage
 
