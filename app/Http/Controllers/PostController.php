@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -61,5 +62,23 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function comment(Post $post, Request $request)
+    {
+
+        $request->validate([
+            'content' => 'required'
+        ]);
+
+        $user = $request->user();
+
+        $comment = Comment::create([
+            'user_id' => $user->id,
+            'post_id' => $post->id,
+            'content' => $user->content,
+        ]);
+
+        $post->comments()->attach($comment);
     }
 }

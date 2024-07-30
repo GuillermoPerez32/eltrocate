@@ -31,10 +31,16 @@ To install and run Eltrocate locally, follow these steps:
 
 ## Running the Application
 
-To run Eltrocate locally, use the following command:
+To run Eltrocate locally, use the following command to start the laravel serve:
 
 ```bash
 php artisan serve
+```
+
+Open another terminal and start the npm server:
+
+```bash
+npm run dev
 ```
 
 ## Usage
