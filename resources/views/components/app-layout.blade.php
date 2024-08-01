@@ -8,11 +8,11 @@
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     @vite('resources/css/app.css')
 
-    <title>{{ $title ?? 'El Trocate' }}</title>
+    <title>{{ $title ?? 'El TROCATE' }}</title>
 </head>
 
-<body>
-    <nav class="py-6 px-4 bg-indigo-950">
+<body class="scroll-smooth">
+    <nav class="py-6 px-4 bg-sky-950">
         <ul>
             <li>
                 <a class="text-3xl text-white" href="{{ route('home') }}">
@@ -23,6 +23,12 @@
         </ul>
     </nav>
     {{ $slot }}
+
+    <footer class="bg-sky-950 py-4 px-4 mt-8 text-white text-center">
+        <p>
+            &copy; {{ now()->year }} El TROCATE
+        </p>
+    </footer>
 </body>
 
 </html>
