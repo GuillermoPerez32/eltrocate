@@ -68,8 +68,8 @@
         </div>
     </a>
 
-    <div id="convertidor" class="mt-4 px-12">
-        <div class="bg-sky-900 h-20 max-w-[900px] mx-auto py-4 px-4 flex items-center md:px-8">
+    <div id="convertidor" class="mt-4 px-12 max-w-[900px] mx-auto">
+        <div class="bg-sky-900 h-20 py-4 px-4 flex items-center md:px-8">
             <div class="h-8 w-8 flex items-center">
                 <img src="logo-table.avif" alt="" height="155" width="108">
             </div>
