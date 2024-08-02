@@ -23,11 +23,12 @@ To install and run Eltrocate locally, follow these steps:
 2. Navigate to the project directory: `cd eltrocate`
 3. Install laravel dependencies: `composer install`
 4. Install npm dependencies: `npm install`
-5. Create a `.env` file by copying the `.env.example` file: `cp .env.example .env`
-6. Generate an application key: `php artisan key:generate`
-7. Create a new database and update the `.env` file with your database credentials
-8. Run the database migrations: `php artisan migrate`
-9. Seed the database with initial data: `php artisan db:seed`
+5. Build the npm packages: `npm run build`
+6. Create a `.env` file by copying the `.env.example` file: `cp .env.example .env`
+7. Generate an application key: `php artisan key:generate`
+8. Create a new database and update the `.env` file with your database credentials
+9. Run the database migrations: `php artisan migrate`
+10. Seed the database with initial data: `php artisan db:seed`
 
 ## Running the Application
 
