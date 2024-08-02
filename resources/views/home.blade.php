@@ -30,7 +30,8 @@
                         <img class="h-10 w-auto" src="icon-eu.png" height="40" alt="icon-eu">
                     </div>
                 </div>
-                <div class="border-b border-black border-solid flex items-center p-4 font-semibold">345.00 CUP</div>
+                <div class="border-b border-black border-solid flex items-center p-4 font-semibold">
+                    {{ $currency['ECU'] }}.00 CUP</div>
 
 
                 <div class="border-b border-r border-black border-solid flex items-center p-4">
@@ -39,7 +40,8 @@
                         <img class="h-10 w-auto" src="icon-usa.png" height="40" alt="icon-usa">
                     </div>
                 </div>
-                <div class="border-b border-black border-solid flex items-center p-4 font-semibold">345.00 CUP</div>
+                <div class="border-b border-black border-solid flex items-center p-4 font-semibold">
+                    {{ $currency['USD'] }}.00 CUP</div>
 
 
                 <div class="border-b border-r border-black border-solid flex items-center p-4">
@@ -48,7 +50,8 @@
                         <img class="h-10 w-auto" src="icon-mlc.png" height="40" alt="icon-mlc">
                     </div>
                 </div>
-                <div class="border-b border-black border-solid flex items-center p-4 font-semibold">345.00 CUP</div>
+                <div class="border-b border-black border-solid flex items-center p-4 font-semibold">
+                    {{ $currency['MLC'] }}.00 CUP</div>
             </div>
 
             <div class="py-5">
@@ -73,6 +76,9 @@
             <span class="text-white text-xl font-bold ml-4">
                 CONVERTIDOR DE MONEDAS
             </span>
+        </div>
+        <div class="p-4 bg-sky-500">
+
         </div>
     </div>
 
