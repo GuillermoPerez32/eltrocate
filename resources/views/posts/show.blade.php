@@ -9,8 +9,4 @@
             <p class="my-4">{{ $post->abstract }}</p>
         </div>
     </div>
-
-
-
-
 </x-app-layout>

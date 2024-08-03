@@ -114,7 +114,7 @@
 
         @foreach ($posts as $post)
             <div class="p-4">
-                <a class="hover:text-blue-900" href="{{ route('posts.show', $post->slug) }}">
+                <a class="hover:text-blue-900" href="{{ route('posts.show', $post) }}">
                     <img src="{{ $post->image }}" alt="" height="714px" width="1218px"
                         class="object-cover w-full h-auto">
                     <h2 class="text-xl font-medium">{{ $post->title }}</h2>
