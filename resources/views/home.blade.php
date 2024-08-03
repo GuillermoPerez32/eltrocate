@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="border-b border-black border-solid flex items-center p-4 font-semibold">
-                    {{ $currency['ECU'] }}.00 CUP</div>
+                    {{ $currency['ecu'] }}.00 CUP</div>
 
 
                 <div class="border-b border-r border-black border-solid flex items-center p-4">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="border-b border-black border-solid flex items-center p-4 font-semibold">
-                    {{ $currency['USD'] }}.00 CUP</div>
+                    {{ $currency['usd'] }}.00 CUP</div>
 
 
                 <div class="border-b border-r border-black border-solid flex items-center p-4">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="border-b border-black border-solid flex items-center p-4 font-semibold">
-                    {{ $currency['MLC'] }}.00 CUP</div>
+                    {{ $currency['mlc'] }}.00 CUP</div>
             </div>
 
             <div class="py-5">
@@ -78,7 +78,6 @@
             </span>
         </div>
         <div class="p-4 bg-sky-500">
-
         </div>
     </div>
 

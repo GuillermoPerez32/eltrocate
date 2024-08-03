@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Comment;
+use App\Models\Currency;
 use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,6 +25,8 @@ class DatabaseSeeder extends Seeder
                 'user_id' => User::inRandomOrder()->first()->id,
             ]);
         });
+
+        // Currency::factory(40)->create();
 
         User::factory()->create([
             'name' => 'Test User',
