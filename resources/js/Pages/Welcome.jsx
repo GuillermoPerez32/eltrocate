@@ -1,40 +1,8 @@
 import Converter from "@/Components/Converter";
 import ExhangeTable from "@/Components/ExhangeTable";
 import { Head } from "@inertiajs/react";
-import { useMemo, useState } from "react";
 
 export default function Welcome({ posts, currency }) {
-    const currency_types = ["usd", "ecu", "cup", "mlc"];
-    const currency_names = {
-        usd: "USD",
-        ecu: "EUR",
-        cup: "CUP",
-        mlc: "MLC",
-    };
-
-    const [convertionValue, setConvertionValue] = useState(1);
-    const [selectedCurrency, setSelectedCurrency] = useState("usd");
-
-    const convertions = useMemo(() => {
-        let convertions = {};
-        currency_types.forEach((type) => {
-            if (type === selectedCurrency) {
-                convertions[type] = convertionValue.toFixed(2);
-            } else if (type === "cup") {
-                convertions[type] = (
-                    convertionValue * currency[selectedCurrency]
-                ).toFixed(2);
-            } else {
-                const type_cup_value = convertionValue * currency[type];
-                const calc = (
-                    type_cup_value / currency[selectedCurrency]
-                ).toFixed(2);
-                convertions[type] = calc === "NaN" ? (0).toFixed(2) : calc;
-            }
-        });
-        return convertions;
-    }, [selectedCurrency, convertionValue]);
-
     return (
         <>
             <Head>
@@ -85,15 +53,7 @@ export default function Welcome({ posts, currency }) {
                 </p>
             </div>
 
-            <Converter
-                convertions={convertions}
-                currency_names={currency_names}
-                currency_types={currency_types}
-                convertionValue={convertionValue}
-                selectedCurrency={selectedCurrency}
-                onChangeConvertion={(e) => setConvertionValue(+e.target.value)}
-                onChangeCurrency={(e) => setSelectedCurrency(e.target.value)}
-            />
+            <Converter currency={currency} />
 
             <div id="posts" className="grid grid-cols-2 mt-8 px-8 md:px-24">
                 {posts.map((post) => (

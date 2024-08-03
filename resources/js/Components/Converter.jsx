@@ -1,15 +1,38 @@
 import moment from "moment";
-import React from "react";
+import React, { useMemo, useState } from "react";
 
-export default function Converter({
-    convertions,
-    currency_names,
-    currency_types,
-    convertionValue,
-    selectedCurrency,
-    onChangeConvertion,
-    onChangeCurrency,
-}) {
+export default function Converter({ currency }) {
+    const [convertionValue, setConvertionValue] = useState(1);
+    const [selectedCurrency, setSelectedCurrency] = useState("usd");
+
+    const currency_types = ["usd", "ecu", "cup", "mlc"];
+    const currency_names = {
+        usd: "USD",
+        ecu: "EUR",
+        cup: "CUP",
+        mlc: "MLC",
+    };
+
+    const convertions = useMemo(() => {
+        let convertions = {};
+        currency_types.forEach((type) => {
+            if (type === selectedCurrency) {
+                convertions[type] = convertionValue.toFixed(2);
+            } else if (type === "cup") {
+                convertions[type] = (
+                    convertionValue * currency[selectedCurrency]
+                ).toFixed(2);
+            } else {
+                const type_cup_value = convertionValue * currency[type];
+                const calc = (
+                    type_cup_value / currency[selectedCurrency]
+                ).toFixed(2);
+                convertions[type] = calc === "NaN" ? (0).toFixed(2) : calc;
+            }
+        });
+        return convertions;
+    }, [selectedCurrency, convertionValue]);
+
     return (
         <div
             id="convertidor"
@@ -37,14 +60,14 @@ export default function Converter({
                         className="w-24 md:w-1/2 p-2 rounded"
                         placeholder="Monto"
                         value={convertionValue}
-                        onChange={onChangeConvertion}
+                        onChange={(e) => setConvertionValue(+e.target.value)}
                     />
                     <select
                         name="from"
                         id="from"
                         className="w-24 p-2 rounded ml-auto"
                         value={selectedCurrency}
-                        onChange={onChangeCurrency}
+                        onChange={(e) => setSelectedCurrency(e.target.value)}
                     >
                         {currency_types.map((type) => (
                             <option key={type} value={type}>
