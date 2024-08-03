@@ -3,14 +3,14 @@ import React from "react";
 
 export default function ExhangeTable({ currency }) {
     return (
-        <div className="mt-8 max-w-[1000px] px-4 md:px-12 mx-auto">
+        <div className="mt-8 max-w-[1000px] mx-auto">
             <div className="bg-sky-700 h-20 py-4 px-4 flex items-center md:px-8">
                 <span className="text-white text-xl font-bold">
                     MERCADO INFORMAL DE DIVISAS EN CUBA (TIEMPO REAL)
                 </span>
                 <div className="ml-auto h-8 w-8">
                     <img
-                        src="logo-table.avif"
+                        src="/logo-table.avif"
                         alt=""
                         height="155"
                         width="108"
@@ -24,7 +24,7 @@ export default function ExhangeTable({ currency }) {
                         <div className="ml-4">
                             <img
                                 className="h-10 w-auto"
-                                src="icon-eu.png"
+                                src="/icon-eu.png"
                                 height="40"
                                 alt="icon-eu"
                             />
@@ -39,7 +39,7 @@ export default function ExhangeTable({ currency }) {
                         <div className="ml-4">
                             <img
                                 className="h-10 w-auto"
-                                src="icon-usa.png"
+                                src="/icon-usa.png"
                                 height="40"
                                 alt="icon-usa"
                             />
@@ -54,7 +54,7 @@ export default function ExhangeTable({ currency }) {
                         <div className="ml-4">
                             <img
                                 className="h-10 w-auto"
-                                src="icon-mlc.png"
+                                src="/icon-mlc.png"
                                 height="40"
                                 alt="icon-mlc"
                             />

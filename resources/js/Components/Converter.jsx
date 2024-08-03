@@ -34,14 +34,11 @@ export default function Converter({ currency }) {
     }, [selectedCurrency, convertionValue]);
 
     return (
-        <div
-            id="convertidor"
-            className="mt-4 px-4 md:px-12 max-w-[900px] mx-auto"
-        >
+        <div id="convertidor" className="mt-4 max-w-[900px] mx-auto">
             <div className="bg-sky-900 h-20 py-4 px-4 flex items-center md:px-8">
                 <div className="h-8 w-8 flex items-center">
                     <img
-                        src="logo-table.avif"
+                        src="/logo-table.avif"
                         alt=""
                         height="155"
                         width="108"
@@ -60,7 +57,11 @@ export default function Converter({ currency }) {
                         className="w-24 md:w-1/2 p-2 rounded"
                         placeholder="Monto"
                         value={convertionValue}
-                        onChange={(e) => setConvertionValue(+e.target.value)}
+                        onChange={(e) => {
+                            if (!isNaN(+e.target.value)) {
+                                setConvertionValue(+e.target.value);
+                            }
+                        }}
                     />
                     <select
                         name="from"

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Currency;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -40,9 +41,11 @@ class PostController extends Controller
     {
 
         $post = Post::where('slug', $slug)->first();
+        $currency = Currency::orderBy('id', 'desc')->first();
 
         return Inertia::render('Posts/ShowPost', [
             'post' => $post,
+            'currency' => $currency,
         ]);
     }
 

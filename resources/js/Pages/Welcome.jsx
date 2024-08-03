@@ -33,7 +33,9 @@ export default function Welcome({ posts, currency }) {
                 </div>
             </div>
 
-            <ExhangeTable currency={currency} />
+            <div className="px-4 md:px-12">
+                <ExhangeTable currency={currency} />
+            </div>
 
             <div className="my-8 mx-auto px-4 md:px-12 max-w-[900px]">
                 <p>
@@ -53,8 +55,9 @@ export default function Welcome({ posts, currency }) {
                 </p>
             </div>
 
-            <Converter currency={currency} />
-
+            <div className="px-4 md:px-12">
+                <Converter currency={currency} />
+            </div>
             <div id="posts" className="grid grid-cols-2 mt-8 px-8 md:px-24">
                 {posts.map((post) => (
                     <div className="p-4" key={post.id}>
