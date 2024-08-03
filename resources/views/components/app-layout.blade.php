@@ -22,6 +22,7 @@
             </li>
         </ul>
     </nav>
+
     {{ $slot }}
 
     <footer class="bg-sky-950 py-4 px-4 mt-8 text-white text-center">

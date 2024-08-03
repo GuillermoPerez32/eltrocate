@@ -62,11 +62,17 @@
         </div>
     </div>
 
-    <a href="#convertidor">
-        <div class="bg-red-900 text-white text-md font-semibold p-4 w-min mx-auto mt-2 rounded">
-            Convertidor
-        </div>
-    </a>
+    <div class="my-8 mx-auto px-12 max-w-[900px]">
+        <p>Con la siguiente calculadora podrás saber a cuánto equivalen las monedas que tengas con otras denominaciones,
+            según las tasas del mercado informal. Aquí puedes saber no sólo el valor con respecto al USD, al EURO o el
+            MLC, sino también con respecto a otras divisas de uso en el mercado informal cubano, como el dólar
+            canadiense (CAD) la libra esterlina (GBP) o el franco suizo (CHF).
+        </p>
+        <p>
+            Siempre ten en cuenta que los valores que aparecen deben ser tomados como REFERENCIA, pues el precio final
+            del cambio lo fijarán vendedores y compradores cuando concreten una transacción.
+        </p>
+    </div>
 
     <div id="convertidor" class="mt-4 px-12 max-w-[900px] mx-auto">
         <div class="bg-sky-900 h-20 py-4 px-4 flex items-center md:px-8">
@@ -77,8 +83,44 @@
                 CONVERTIDOR DE MONEDAS
             </span>
         </div>
-        <div class="p-4 bg-sky-500">
+        <div class="p-4 bg-blue-300">
+            <div class="flex">
+                <input type="number" name="amount" id="amount" class="w-1/2 p-2 rounded" placeholder="Monto">
+                <select name="from" id="from" class="w-40 p-2 rounded ml-auto">
+                    <option value="ecu">EUR</option>
+                    <option value="usd">USD</option>
+                    <option value="mlc">MLC</option>
+                    <option value="cup">CUP</option>
+                </select>
+            </div>
+            <div class="grid grid-cols-3 mt-12">
+
+                <div class="text-center py-2 font-semibold text-lg border border-black mx-4">
+                    <span class="text-red-800">280.00</span> USD
+                </div>
+                <div class="text-center py-2 font-semibold text-lg border border-black mx-4">
+                    <span class="text-red-800">280.00</span> MLC
+                </div>
+                <div class="text-center py-2 font-semibold text-lg border border-black mx-4">
+                    <span class="text-red-800">280.00</span> ECU
+                </div>
+
+            </div>
         </div>
+    </div>
+
+    <div id="posts" class="grid grid-cols-2 mt-8 px-8 md:px-24">
+
+        @foreach ($posts as $post)
+            <div class="p-4">
+                <a class="hover:text-blue-900" href="{{ route('posts.show', $post->slug) }}">
+                    <img src="{{ $post->image }}" alt="" height="714px" width="1218px"
+                        class="object-cover w-full h-auto">
+                    <h2 class="text-xl font-medium">{{ $post->title }}</h2>
+                </a>
+            </div>
+        @endforeach
+
     </div>
 
 </x-app-layout>

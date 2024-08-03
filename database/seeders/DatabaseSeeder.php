@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             ]);
         });
 
-        // Currency::factory(40)->create();
+        Currency::factory(40)->create();
 
         User::factory()->create([
             'name' => 'Test User',

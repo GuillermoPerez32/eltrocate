@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     function home()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->get()->take(8);
 
         $currency = Currency::orderBy('id', 'desc')->first();
 
