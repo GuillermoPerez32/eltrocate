@@ -1,0 +1,87 @@
+import moment from "moment";
+import React from "react";
+
+export default function Converter({
+    convertions,
+    currency_names,
+    currency_types,
+    convertionValue,
+    selectedCurrency,
+    onChangeConvertion,
+    onChangeCurrency,
+}) {
+    return (
+        <div
+            id="convertidor"
+            className="mt-4 px-4 md:px-12 max-w-[900px] mx-auto"
+        >
+            <div className="bg-sky-900 h-20 py-4 px-4 flex items-center md:px-8">
+                <div className="h-8 w-8 flex items-center">
+                    <img
+                        src="logo-table.avif"
+                        alt=""
+                        height="155"
+                        width="108"
+                    />
+                </div>
+                <span className="text-white text-xl font-bold ml-4">
+                    CONVERTIDOR DE MONEDAS
+                </span>
+            </div>
+            <div className="p-4 bg-blue-300">
+                <div className="flex">
+                    <input
+                        type="text"
+                        name="amount"
+                        id="amount"
+                        className="w-24 md:w-1/2 p-2 rounded"
+                        placeholder="Monto"
+                        value={convertionValue}
+                        onChange={onChangeConvertion}
+                    />
+                    <select
+                        name="from"
+                        id="from"
+                        className="w-24 p-2 rounded ml-auto"
+                        value={selectedCurrency}
+                        onChange={onChangeCurrency}
+                    >
+                        {currency_types.map((type) => (
+                            <option key={type} value={type}>
+                                {currency_names[type]}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="grid grid-cols-1 mt-12 gap-y-6 md:grid-cols-3">
+                    {currency_types.map((type) => (
+                        <div
+                            key={type}
+                            className="text-center py-2 font-semibold text-lg border border-black mx-4 rounded"
+                        >
+                            <span className="text-red-800">
+                                {convertions[type]}
+                            </span>{" "}
+                            {currency_names[type]}
+                        </div>
+                    ))}
+                </div>
+                <div className="bg-black h-0.5 w-full my-8" />
+
+                <div className="flex gap-2 px-2 md:px-12">
+                    <span className="text-center md:text-xl">
+                        <span className="text-gray-700">
+                            *Tipo de cambio del mercado informal a las:
+                        </span>
+                        <span className="font-semibold ml-2">
+                            {moment().format("h:mm A")}
+                        </span>
+                    </span>
+                    <div className="ml-auto font-semibold md:text-xl">
+                        {moment().format("d/m/Y")}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}

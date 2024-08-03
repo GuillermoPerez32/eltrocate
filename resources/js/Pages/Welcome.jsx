@@ -1,5 +1,6 @@
+import Converter from "@/Components/Converter";
+import ExhangeTable from "@/Components/ExhangeTable";
 import { Head } from "@inertiajs/react";
-import moment from "moment";
 import { useMemo, useState } from "react";
 
 export default function Welcome({ posts, currency }) {
@@ -64,75 +65,7 @@ export default function Welcome({ posts, currency }) {
                 </div>
             </div>
 
-            <div className="mt-8 max-w-[1000px] px-4 md:px-12 mx-auto">
-                <div className="bg-sky-700 h-20 py-4 px-4 flex items-center md:px-8">
-                    <span className="text-white text-xl font-bold">
-                        MERCADO INFORMAL DE DIVISAS EN CUBA (TIEMPO REAL)
-                    </span>
-                    <div className="ml-auto h-8 w-8">
-                        <img
-                            src="logo-table.avif"
-                            alt=""
-                            height="155"
-                            width="108"
-                        />
-                    </div>
-                </div>
-                <div className="bg-gray-200 pt-2.5 pb-5 px-7">
-                    <div className="grid grid-cols-2">
-                        <div className="border-b border-r border-black border-solid flex items-center p-4">
-                            <span>1 EUR</span>
-                            <div className="ml-4">
-                                <img
-                                    className="h-10 w-auto"
-                                    src="icon-eu.png"
-                                    height="40"
-                                    alt="icon-eu"
-                                />
-                            </div>
-                        </div>
-                        <div className="border-b border-black border-solid flex items-center p-4 font-semibold">
-                            {currency["ecu"]}.00 CUP
-                        </div>
-
-                        <div className="border-b border-r border-black border-solid flex items-center p-4">
-                            <span>1 USD</span>
-                            <div className="ml-4">
-                                <img
-                                    className="h-10 w-auto"
-                                    src="icon-usa.png"
-                                    height="40"
-                                    alt="icon-usa"
-                                />
-                            </div>
-                        </div>
-                        <div className="border-b border-black border-solid flex items-center p-4 font-semibold">
-                            {currency["usd"]}.00 CUP
-                        </div>
-
-                        <div className="border-b border-r border-black border-solid flex items-center p-4">
-                            <span>1 MLC</span>
-                            <div className="ml-4">
-                                <img
-                                    className="h-10 w-auto"
-                                    src="icon-mlc.png"
-                                    height="40"
-                                    alt="icon-mlc"
-                                />
-                            </div>
-                        </div>
-                        <div className="border-b border-black border-solid flex items-center p-4 font-semibold">
-                            {currency["mlc"]}.00 CUP
-                        </div>
-                    </div>
-
-                    <div className="py-5">
-                        <div className="mx-auto text-center text-gray-600 text-xl font-semibold italic">
-                            {moment().format("d/m/Y h:mm A")}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ExhangeTable currency={currency} />
 
             <div className="my-8 mx-auto px-4 md:px-12 max-w-[900px]">
                 <p>
@@ -152,82 +85,15 @@ export default function Welcome({ posts, currency }) {
                 </p>
             </div>
 
-            <div
-                id="convertidor"
-                className="mt-4 px-4 md:px-12 max-w-[900px] mx-auto"
-            >
-                <div className="bg-sky-900 h-20 py-4 px-4 flex items-center md:px-8">
-                    <div className="h-8 w-8 flex items-center">
-                        <img
-                            src="logo-table.avif"
-                            alt=""
-                            height="155"
-                            width="108"
-                        />
-                    </div>
-                    <span className="text-white text-xl font-bold ml-4">
-                        CONVERTIDOR DE MONEDAS
-                    </span>
-                </div>
-                <div className="p-4 bg-blue-300">
-                    <div className="flex">
-                        <input
-                            type="text"
-                            name="amount"
-                            id="amount"
-                            className="w-24 md:w-1/2 p-2 rounded"
-                            placeholder="Monto"
-                            value={convertionValue}
-                            onChange={(e) =>
-                                setConvertionValue(+e.target.value)
-                            }
-                        />
-                        <select
-                            name="from"
-                            id="from"
-                            className="w-24 p-2 rounded ml-auto"
-                            value={selectedCurrency}
-                            onChange={(e) =>
-                                setSelectedCurrency(e.target.value)
-                            }
-                        >
-                            {currency_types.map((type) => (
-                                <option key={type} value={type}>
-                                    {currency_names[type]}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="grid grid-cols-1 mt-12 gap-y-6 md:grid-cols-3">
-                        {currency_types.map((type) => (
-                            <div
-                                key={type}
-                                className="text-center py-2 font-semibold text-lg border border-black mx-4 rounded"
-                            >
-                                <span className="text-red-800">
-                                    {convertions[type]}
-                                </span>{" "}
-                                {currency_names[type]}
-                            </div>
-                        ))}
-                    </div>
-                    <div className="bg-black h-0.5 w-full my-8" />
-
-                    <div className="flex gap-2 px-2 md:px-12">
-                        <span className="text-center md:text-xl">
-                            <span className="text-gray-700">
-                                *Tipo de cambio del mercado informal a las:
-                            </span>
-                            <span className="font-semibold ml-2">
-                                {moment().format("h:mm A")}
-                            </span>
-                        </span>
-                        <div className="ml-auto font-semibold md:text-xl">
-                            {moment().format("d/m/Y")}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Converter
+                convertions={convertions}
+                currency_names={currency_names}
+                currency_types={currency_types}
+                convertionValue={convertionValue}
+                selectedCurrency={selectedCurrency}
+                onChangeConvertion={(e) => setConvertionValue(+e.target.value)}
+                onChangeCurrency={(e) => setSelectedCurrency(e.target.value)}
+            />
 
             <div id="posts" className="grid grid-cols-2 mt-8 px-8 md:px-24">
                 {posts.map((post) => (
