@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PostController extends Controller
 {
@@ -40,7 +41,7 @@ class PostController extends Controller
 
         $post = Post::where('slug', $slug)->first();
 
-        return view('posts.show', [
+        return Inertia::render('Posts/ShowPost', [
             'post' => $post,
         ]);
     }
