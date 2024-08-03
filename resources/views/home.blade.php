@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <div class="mt-8 max-w-[1000px] px-12 mx-auto">
+    <div class="mt-8 max-w-[1000px] px-4 md:px-12 mx-auto">
         <div class="bg-sky-700 h-20 py-4 px-4 flex items-center md:px-8">
             <span class="text-white text-xl font-bold">
                 MERCADO INFORMAL DE DIVISAS EN CUBA (TIEMPO REAL)
@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <div class="my-8 mx-auto px-12 max-w-[900px]">
+    <div class="my-8 mx-auto px-4 md:px-12 max-w-[900px]">
         <p>Con la siguiente calculadora podrás saber a cuánto equivalen las monedas que tengas con otras denominaciones,
             según las tasas del mercado informal. Aquí puedes saber no sólo el valor con respecto al USD, al EURO o el
             MLC, sino también con respecto a otras divisas de uso en el mercado informal cubano, como el dólar
@@ -74,7 +74,7 @@
         </p>
     </div>
 
-    <div id="convertidor" class="mt-4 px-12 max-w-[900px] mx-auto">
+    <div id="convertidor" class="mt-4 px-4 md:px-12 max-w-[900px] mx-auto">
         <div class="bg-sky-900 h-20 py-4 px-4 flex items-center md:px-8">
             <div class="h-8 w-8 flex items-center">
                 <img src="logo-table.avif" alt="" height="155" width="108">
@@ -85,8 +85,9 @@
         </div>
         <div class="p-4 bg-blue-300">
             <div class="flex">
-                <input type="number" name="amount" id="amount" class="w-1/2 p-2 rounded" placeholder="Monto">
-                <select name="from" id="from" class="w-40 p-2 rounded ml-auto">
+                <input type="number" name="amount" id="amount" class="w-24 md:w-1/2 p-2 rounded"
+                    placeholder="Monto">
+                <select name="from" id="from" class="w-30 p-2 rounded ml-auto">
                     <option value="ecu">EUR</option>
                     <option value="usd">USD</option>
                     <option value="mlc">MLC</option>
