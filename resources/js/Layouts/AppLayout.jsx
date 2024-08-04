@@ -19,7 +19,6 @@ export default function AppLayout({ children }) {
                         </Link>
                     ) : (
                         <>
-                            <Link href={route("login")}>Iniciar Sesion</Link>
                             <Link className="ml-4" href={route("register")}>
                                 Registrarse
                             </Link>
