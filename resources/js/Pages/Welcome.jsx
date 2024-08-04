@@ -1,6 +1,6 @@
 import Converter from "@/Components/Converter";
 import ExhangeTable from "@/Components/ExhangeTable";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 export default function Welcome({ posts, currency }) {
     return (
@@ -10,7 +10,7 @@ export default function Welcome({ posts, currency }) {
             </Head>
             <div className="flex flex-col md:pt-4 md:px-4 md:flex-row">
                 <div>
-                    <a href={route("posts.show", posts[0].slug)}>
+                    <Link href={route("posts.show", posts[0].slug)}>
                         <img
                             className="max-w-full h-80 md:h-96 md:w-96 md:max-w-none object-cover"
                             width="1218"
@@ -18,17 +18,17 @@ export default function Welcome({ posts, currency }) {
                             src={posts[0].image}
                             alt=""
                         />
-                    </a>
+                    </Link>
                 </div>
                 <div className="p-4 flex flex-col justify-between md:p-0 md:pl-10">
-                    <a
+                    <Link
                         className="hover:text-blue-900"
                         href={route("posts.show", posts[0].slug)}
                     >
                         <h2 className="text-2xl font-semibold">
                             {posts[0].title}
                         </h2>
-                    </a>
+                    </Link>
                     <p className="my-4">{posts[0].abstract}</p>
                 </div>
             </div>
@@ -61,7 +61,7 @@ export default function Welcome({ posts, currency }) {
             <div id="posts" className="grid grid-cols-2 mt-8 px-8 md:px-24">
                 {posts.map((post) => (
                     <div className="p-4" key={post.id}>
-                        <a
+                        <Link
                             className="hover:text-blue-900"
                             href={route("posts.show", post.slug)}
                         >
@@ -75,7 +75,7 @@ export default function Welcome({ posts, currency }) {
                             <h2 className="md:text-xl font-medium">
                                 {post.title}
                             </h2>
-                        </a>
+                        </Link>
                     </div>
                 ))}
             </div>

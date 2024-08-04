@@ -1,30 +1,31 @@
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import { Link, usePage } from "@inertiajs/react";
 import moment from "moment";
 import React from "react";
 
 export default function AppLayout({ children }) {
+    const auth = usePage().props.auth;
+
     return (
         <>
-            <nav className="py-6 px-4 bg-sky-950">
-                <ul>
-                    <li>
-                        <a className="text-3xl text-white" href={route("home")}>
-                            <img
-                                className="sm:hidden"
-                                src="/tq-logo.avif"
-                                alt="logo"
-                                width="90"
-                                height="20"
-                            />
-                            <img
-                                className="max-sm:hidden"
-                                src="/tq-logo.avif"
-                                alt="logo"
-                                width="205"
-                                height="46"
-                            />
-                        </a>
-                    </li>
-                </ul>
+            <nav className="flex py-6 px-4 bg-sky-950">
+                <Link className="text-3xl text-white" href={route("home")}>
+                    <ApplicationLogo />
+                </Link>
+                <div className="ml-auto text-white flex items-center">
+                    {auth.user ? (
+                        <Link href={route("logout")} as="button" method="post">
+                            Cerrar Sesion
+                        </Link>
+                    ) : (
+                        <>
+                            <Link href={route("login")}>Iniciar Sesion</Link>
+                            <Link className="ml-4" href={route("register")}>
+                                Registrarse
+                            </Link>
+                        </>
+                    )}
+                </div>
             </nav>
             {children}
 
