@@ -67,7 +67,7 @@ export default function ExhangeTable({ currency }) {
 
                 <div className="py-5">
                     <div className="mx-auto text-center text-gray-600 text-xl font-semibold italic">
-                        {moment().format("d/m/Y h:mm A")}
+                        {moment().format("D/M/Y h:mm A")}
                     </div>
                 </div>
             </div>

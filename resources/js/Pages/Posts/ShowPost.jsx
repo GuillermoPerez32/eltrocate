@@ -11,7 +11,7 @@ export default function ShowPost({ post, currency }) {
                         className="w-full md:h-96 md:w-96 md:max-w-none object-cover"
                         width="1218"
                         height="714"
-                        src={post.image}
+                        src={`/storage/${post.image}`}
                         alt=""
                     />
                 </div>

@@ -12,16 +12,21 @@ export default function AppLayout({ children }) {
                 <Link className="text-3xl text-white" href={route("home")}>
                     <ApplicationLogo />
                 </Link>
-                <div className="ml-auto text-white flex items-center">
+                <div className="ml-auto text-white flex items-center gap-4">
                     {auth.user ? (
-                        <Link href={route("logout")} as="button" method="post">
-                            Cerrar Sesion
-                        </Link>
+                        <>
+                            <Link href="/admin">Admin</Link>
+                            <Link
+                                href={route("logout")}
+                                as="button"
+                                method="post"
+                            >
+                                Cerrar Sesion
+                            </Link>
+                        </>
                     ) : (
                         <>
-                            <Link className="ml-4" href={route("register")}>
-                                Registrarse
-                            </Link>
+                            <Link href={route("register")}>Registrarse</Link>
                         </>
                     )}
                 </div>

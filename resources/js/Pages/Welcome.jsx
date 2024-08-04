@@ -15,7 +15,7 @@ export default function Welcome({ posts, currency }) {
                             className="max-w-full h-80 md:h-96 md:w-96 md:max-w-none object-cover"
                             width="1218"
                             height="714"
-                            src={posts[0].image}
+                            src={`/storage/${posts[0].image}`}
                             alt=""
                         />
                     </Link>
@@ -66,7 +66,7 @@ export default function Welcome({ posts, currency }) {
                             href={route("posts.show", post.slug)}
                         >
                             <img
-                                src={post.image}
+                                src={`/storage/${post.image}`}
                                 alt=""
                                 height="714px"
                                 width="1218px"

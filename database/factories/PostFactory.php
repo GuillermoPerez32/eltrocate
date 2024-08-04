@@ -20,8 +20,7 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraphs(15, true),
             'abstract' => $this->faker->paragraph(),
-            'slug' => $this->faker->slug,
-            'image' => $this->faker->imageUrl(),
+            'image' => $this->faker->image('public/storage', 300, 300, null, false),
         ];
     }
 }
