@@ -20,6 +20,7 @@ class CurrencyFactory extends Factory
             'ecu' => $this->faker->randomNumber(3),
             'usd' => $this->faker->randomNumber(3),
             'mlc' => $this->faker->randomNumber(3),
+            'mxn' => $this->faker->randomNumber(3),
         ];
     }
 }
