@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('ecu');
             $table->integer('usd');
             $table->integer('mlc');
-            $table->integer('mxn');
+            // $table->integer('mxn');
             $table->timestamps();
         });
     }

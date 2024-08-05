@@ -20,6 +20,6 @@ Schedule::call(function () {
         'usd' => (int) $currency_cambiocuba['USD.CUP']['avg'] * .95,
         'mlc' => (int) $currency_cambiocuba['MLC.CUP']['avg'] * .95,
         'ecu' => (int) $currency_cambiocuba['ECU.CUP']['avg'] * .95,
-        'mxn' => (int) $currency_cambiocuba['MXN.CUP']['avg'] * .95,
+        // 'mxn' => (int) $currency_cambiocuba['MXN.CUP']['avg'] * .95,
     ]);
 })->everyMinute()->name('update-currency');
