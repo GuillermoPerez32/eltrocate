@@ -40,7 +40,13 @@ class PostController extends Controller
     public function show($slug)
     {
 
-        $post = Post::where('slug', $slug)->first();
+        $post = Post::where('slug', $slug)->with([
+            'comments' => [
+                'user' => function ($query) {
+                    $query->select('id', 'name');
+                }
+            ]
+        ])->orderBy('id', 'desc')->first();
         $currency = Currency::orderBy('id', 'desc')->first();
 
         return Inertia::render('Posts/ShowPost', [
