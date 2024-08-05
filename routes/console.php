@@ -17,9 +17,9 @@ Schedule::call(function () {
     $currency_cambiocuba = $cambiocuba_response->json()['statistics'];
 
     DB::table('currencies')->insert([
-        'usd' => $currency_cambiocuba['USD.CUP']['avg'] * .95,
-        'mlc' => $currency_cambiocuba['MLC.CUP']['avg'] * .95,
-        'ecu' => $currency_cambiocuba['ECU.CUP']['avg'] * .95,
-        'mxn' => $currency_cambiocuba['MXN.CUP']['avg'] * .95,
+        'usd' => (int) $currency_cambiocuba['USD.CUP']['avg'] * .95,
+        'mlc' => (int) $currency_cambiocuba['MLC.CUP']['avg'] * .95,
+        'ecu' => (int) $currency_cambiocuba['ECU.CUP']['avg'] * .95,
+        'mxn' => (int) $currency_cambiocuba['MXN.CUP']['avg'] * .95,
     ]);
 })->everyMinute()->name('update-currency');
