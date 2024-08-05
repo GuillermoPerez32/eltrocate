@@ -16,7 +16,11 @@ export default function Converter({ currency }) {
     const convertions = useMemo(() => {
         let convertions = {};
         currency_types.forEach((type) => {
-            if (type === selectedCurrency) {
+            if (selectedCurrency === "cup" && type !== "cup") {
+                convertions[type] = (convertionValue / currency[type]).toFixed(
+                    2
+                );
+            } else if (type === selectedCurrency) {
                 convertions[type] = convertionValue.toFixed(2);
             } else if (type === "cup") {
                 convertions[type] = (

@@ -15,7 +15,11 @@ export default function AppLayout({ children }) {
                 <div className="ml-auto text-white flex items-center gap-4">
                     {auth.user ? (
                         <>
-                            <Link href="/admin">Admin</Link>
+                            <Link
+                                href={route("filament.admin.pages.dashboard")}
+                            >
+                                Admin
+                            </Link>
                             <Link
                                 href={route("logout")}
                                 as="button"
