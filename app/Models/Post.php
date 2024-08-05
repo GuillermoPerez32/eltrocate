@@ -16,6 +16,11 @@ class Post extends Model
         $this->attributes['slug'] = (new SlugNormalizer())->normalize($value);
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);

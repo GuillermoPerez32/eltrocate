@@ -1,5 +1,5 @@
 import Converter from "@/Components/Converter";
-import ExhangeTable from "@/Components/ExhangeTable";
+import ExchangeTable from "@/Components/ExchangeTable";
 import { Head, Link } from "@inertiajs/react";
 
 export default function Welcome({ posts, currency }) {
@@ -8,33 +8,35 @@ export default function Welcome({ posts, currency }) {
             <Head>
                 <link rel="icon" href="favicon.png" type="image/png" />
             </Head>
-            <div className="flex flex-col md:pt-4 md:px-4 md:flex-row">
-                <div>
-                    <Link href={route("posts.show", posts[0].slug)}>
-                        <img
-                            className="max-w-full h-80 md:h-96 md:w-96 md:max-w-none object-cover"
-                            width="1218"
-                            height="714"
-                            src={`/storage/${posts[0].image}`}
-                            alt=""
-                        />
-                    </Link>
+            {posts.length > 0 && (
+                <div className="flex flex-col md:pt-4 md:px-4 md:flex-row">
+                    <div>
+                        <Link href={route("posts.show", posts[0].slug)}>
+                            <img
+                                className="max-w-full h-80 md:h-96 md:w-96 md:max-w-none object-cover"
+                                width="1218"
+                                height="714"
+                                src={`/storage/${posts[0].image}`}
+                                alt=""
+                            />
+                        </Link>
+                    </div>
+                    <div className="p-4 flex flex-col justify-between md:p-0 md:pl-10">
+                        <Link
+                            className="hover:text-blue-900"
+                            href={route("posts.show", posts[0].slug)}
+                        >
+                            <h2 className="text-2xl font-semibold">
+                                {posts[0].title}
+                            </h2>
+                        </Link>
+                        <p className="my-4">{posts[0].abstract}</p>
+                    </div>
                 </div>
-                <div className="p-4 flex flex-col justify-between md:p-0 md:pl-10">
-                    <Link
-                        className="hover:text-blue-900"
-                        href={route("posts.show", posts[0].slug)}
-                    >
-                        <h2 className="text-2xl font-semibold">
-                            {posts[0].title}
-                        </h2>
-                    </Link>
-                    <p className="my-4">{posts[0].abstract}</p>
-                </div>
-            </div>
+            )}
 
             <div className="px-4 md:px-12">
-                <ExhangeTable currency={currency} />
+                {currency && <ExchangeTable currency={currency} />}
             </div>
 
             <div className="my-8 mx-auto px-4 md:px-12 max-w-[900px]">
@@ -56,7 +58,7 @@ export default function Welcome({ posts, currency }) {
             </div>
 
             <div className="px-4 md:px-12">
-                <Converter currency={currency} />
+                {currency && <Converter currency={currency} />}
             </div>
             <div id="posts" className="grid grid-cols-2 mt-8 px-8 md:px-24">
                 {posts.map((post) => (

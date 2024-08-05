@@ -18,15 +18,15 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
 
-        $posts = Post::factory(4)->create();
-        $posts->each(function ($post) {
-            Comment::factory(rand(0, 3))->create([
-                'post_id' => $post->id,
-                'user_id' => User::inRandomOrder()->first()->id,
-            ]);
-        });
+        // $posts = Post::factory(4)->create();
+        // $posts->each(function ($post) {
+        //     Comment::factory(rand(0, 3))->create([
+        //         'post_id' => $post->id,
+        //         'user_id' => User::inRandomOrder()->first()->id,
+        //     ]);
+        // });
 
-        Currency::factory(40)->create();
+        // Currency::factory(40)->create();
 
         User::factory()->create([
             'name' => 'Test User',

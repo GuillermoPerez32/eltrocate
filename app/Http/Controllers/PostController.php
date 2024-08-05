@@ -83,17 +83,32 @@ class PostController extends Controller
     {
 
         $request->validate([
-            'content' => 'required'
+            'content' => 'required|string|min:3',
         ]);
 
         $user = $request->user();
 
-        $comment = Comment::create([
-            'user_id' => $user->id,
-            'post_id' => $post->id,
-            'content' => $user->content,
-        ]);
+        if (!$user) {
+            return to_route('login');
+        }
 
-        $post->comments()->attach($comment);
+        $comment = Comment::where('user_id', $user->id)
+            ->where('post_id', $post->id)
+            ->first();
+
+        if ($comment) {
+            $comment->update([
+                'content' => $request->content,
+            ]);
+            $comment->refresh();
+        } else {
+            Comment::create([
+                'user_id' => $user->id,
+                'post_id' => $post->id,
+                'content' => $request->content,
+            ]);
+        }
+
+        return to_route('posts.show', $post->slug);
     }
 }

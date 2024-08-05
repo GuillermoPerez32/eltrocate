@@ -12,6 +12,12 @@ Route::get('/', [HomeController::class, 'home'])
 Route::resource('noticias', PostController::class)
     ->names('posts');
 
+Route::post('noticias/{post}/comment', [PostController::class, 'comment'])
+    ->name('posts.comment');
+
+Route::resource('comments', PostController::class)
+    ->names('comments');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

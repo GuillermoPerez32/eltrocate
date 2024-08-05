@@ -1,7 +1,7 @@
 import moment from "moment";
 import React from "react";
 
-export default function ExhangeTable({ currency }) {
+export default function ExchangeTable({ currency }) {
     return (
         <div className="mt-8 max-w-[1000px] mx-auto">
             <div className="bg-sky-700 h-20 py-4 px-4 flex items-center md:px-8">

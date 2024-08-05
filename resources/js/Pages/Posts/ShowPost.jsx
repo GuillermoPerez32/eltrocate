@@ -1,10 +1,24 @@
 import Converter from "@/Components/Converter";
-import ExhangeTable from "@/Components/ExhangeTable";
+import ExchangeTable from "@/Components/ExchangeTable";
+import { useForm } from "@inertiajs/react";
 import moment from "moment";
 import React from "react";
 import Markdown from "react-markdown";
 
 export default function ShowPost({ post, currency }) {
+    const { data, setData, post: postComment, processing, errors } = useForm();
+
+    const handleSubmitComment = (e) => {
+        e.preventDefault();
+        postComment(`/noticias/${post.slug}/comment`, {
+            data,
+            onSuccess: () => {
+                setData("content", "");
+            },
+            preserveScroll: true,
+        });
+    };
+
     return (
         <div className="flex">
             <div className="p-4 w-full">
@@ -28,6 +42,27 @@ export default function ShowPost({ post, currency }) {
                         <div className="w-full h-0.5 bg-black my-2 ml-4" />
                     </div>
 
+                    <form onSubmit={handleSubmitComment} className="my-4">
+                        <label htmlFor="content">Comentario</label>
+                        <textarea
+                            value={data.content}
+                            onChange={(e) => setData("content", e.target.value)}
+                            name="content"
+                            id="content"
+                            className="w-full h-20 p-2 border border-slate-300"
+                        ></textarea>
+                        {errors.content && (
+                            <p className="text-red-500">{errors.content}</p>
+                        )}
+                        <button
+                            type="submit"
+                            className="bg-sky-700 text-white p-2 mt-2"
+                            disabled={processing}
+                        >
+                            Enviar
+                        </button>
+                    </form>
+
                     <div className="pl-4 md:pl-10">
                         {post.comments.map((comment) => (
                             <div key={comment.id} className="flex my-8">
@@ -48,18 +83,20 @@ export default function ShowPost({ post, currency }) {
 
                     <div className="w-full h-0.5 bg-slate-700 my-2 block md:hidden" />
                     <div className="py-2 md:hidden">
-                        <ExhangeTable currency={currency} />
-                        <Converter currency={currency} />
+                        {currency && <ExchangeTable currency={currency} />}
+                        {currency && <Converter currency={currency} />}
                     </div>
                 </div>
             </div>
 
             <div className="h-auto w-0.5 bg-slate-700 my-2 hidden md:block" />
 
-            <div className="hidden py-2 px-4 md:block">
-                <ExhangeTable currency={currency} />
-                <Converter currency={currency} />
-            </div>
+            {currency && (
+                <div className="hidden py-2 px-4 md:block">
+                    <ExchangeTable currency={currency} />
+                    <Converter currency={currency} />
+                </div>
+            )}
         </div>
     );
 }
