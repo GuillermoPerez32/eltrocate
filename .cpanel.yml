@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/legendfe/repositories/
+    - /bin/cp -R * $DEPLOYPATH
