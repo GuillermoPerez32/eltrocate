@@ -1,0 +1,39 @@
+name: Actualizar en VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v2
+
+      - name: Conectar al VPS y actualizar
+        uses: appleboy/ssh-action@master
+        with:
+          host: 206.189.238.9
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            cd /var/www/eltrocate/
+            git pull
+
+            COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-dev
+
+            source ~/.nvm/nvm.sh
+            nvm use --lts
+
+            npm i
+            npm run build
+
+            php artisan migrate
+
+            php artisan optimize
+
+            service php8.3-fpm restart
+            sudo service nginx restart
