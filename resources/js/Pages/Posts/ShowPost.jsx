@@ -1,5 +1,6 @@
 import Converter from "@/Components/Converter";
 import ExchangeTable from "@/Components/ExchangeTable";
+import AppLayout from "@/Layouts/AppLayout";
 import { useForm } from "@inertiajs/react";
 import moment from "moment";
 import React from "react";
