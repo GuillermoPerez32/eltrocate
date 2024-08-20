@@ -1,10 +1,11 @@
 import Converter from "@/Components/Converter";
 import ExchangeTable from "@/Components/ExchangeTable";
+import AppLayout from "@/Layouts/AppLayout";
 import { Head, Link } from "@inertiajs/react";
 
 export default function Welcome({ posts, currency }) {
     return (
-        <>
+        <AppLayout>
             <Head>
                 <link rel="icon" href="favicon.png" type="image/png" />
             </Head>
@@ -81,6 +82,6 @@ export default function Welcome({ posts, currency }) {
                     </div>
                 ))}
             </div>
-        </>
+        </AppLayout>
     );
 }
