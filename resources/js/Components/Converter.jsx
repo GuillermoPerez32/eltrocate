@@ -42,7 +42,7 @@ export default function Converter({ currency }) {
             id="convertidor"
             className="mt-4 max-w-[900px] mx-auto shadow-lg rounded-md"
         >
-            <div className=" h-20 py-4 px-4 flex items-center md:px-8 shadow-md bg-cyan-200">
+            <div className=" h-20 py-4 px-4 flex items-center md:px-8 shadow-md bg-cyan-500">
                 <span className="text-xl font-bold ml-4">
                     CONVERTIDOR DE MONEDAS
                 </span>
@@ -54,7 +54,7 @@ export default function Converter({ currency }) {
                     className="ml-auto"
                 />
             </div>
-            <div className="p-4 ">
+            <div className="p-4">
                 <div className="flex">
                     <input
                         type="text"
