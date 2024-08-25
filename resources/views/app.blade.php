@@ -9,6 +9,9 @@
 
     <link rel="shortcut icon" href="/logo.png" type="image/png">
 
+    <meta name="description" content="Conoce la actual tasa de cambio del USD, EUR y MLC en Cuba">
+
+
     <!-- Scripts -->
     @routes
     @viteReactRefresh

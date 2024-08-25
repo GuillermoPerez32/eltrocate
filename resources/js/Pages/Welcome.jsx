@@ -1,7 +1,7 @@
 import Converter from "@/Components/Converter";
 import ExchangeTable from "@/Components/ExchangeTable";
 import AppLayout from "@/Layouts/AppLayout";
-import { Head, Link } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 
 export default function Welcome({ posts, currency }) {
     return (
