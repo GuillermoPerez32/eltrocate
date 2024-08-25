@@ -19,11 +19,19 @@ export default function ExchangeTable({ currency }) {
             </div>
             <div className=" pt-2.5 pb-5 px-7">
                 {Object.keys(CURRENCY_NAMES).map((key) => (
-                    <div className="mt-4 flex justify-between border border-slate-400 shadow rounded-full">
+                    <div className="mt-4 flex border border-slate-400 shadow rounded-full">
                         <div className="flex items-center p-4">
                             <span>1 {CURRENCY_NAMES[key]}</span>
                         </div>
-                        <div className="flex items-center p-4 font-semibold">
+                        <div className="ml-2 flex items-center">
+                            <img
+                                className="h-10"
+                                src={`/icon-${key}.png`}
+                                height="40"
+                                alt="icon-eu"
+                            />
+                        </div>
+                        <div className="flex items-center p-4 font-semibold ml-auto">
                             {currency[key].toFixed(2)} CUP
                         </div>
                     </div>
