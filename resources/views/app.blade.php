@@ -7,7 +7,7 @@
 
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
 
     <!-- Scripts -->
     @routes

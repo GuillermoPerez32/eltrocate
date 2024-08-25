@@ -8,11 +8,11 @@ export default function AppLayout({ children }) {
 
     return (
         <>
-            <nav className="flex py-6 px-4 bg-sky-950">
-                <Link className="text-3xl text-white" href={route("home")}>
+            <nav className="flex py-6 px-4 shadow-md">
+                <Link href={route("home")}>
                     <ApplicationLogo />
                 </Link>
-                <div className="ml-auto text-white flex items-center gap-4">
+                <div className="ml-auto flex items-center gap-4">
                     {auth.user ? (
                         <>
                             <a href={route("filament.admin.pages.dashboard")}>
@@ -35,7 +35,7 @@ export default function AppLayout({ children }) {
             </nav>
             {children}
 
-            <footer className="bg-sky-950 py-4 px-4 mt-8 text-white text-center">
+            <footer className="font-bold text-lg py-4 px-4 mt-8 text-center">
                 <p>&copy; {moment().year()} El TROCATE</p>
             </footer>
         </>

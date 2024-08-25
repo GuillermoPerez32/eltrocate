@@ -39,15 +39,17 @@ export default function ShowPost({ post, currency }) {
                             <Markdown>{post.content}</Markdown>
                         </article>
 
-                        <div className="flex items-center w-full">
+                        <div className="flex items-center w-full mt-12">
                             <span className="font-bold text-2xl">
                                 Comentarios
                             </span>
                             <div className="w-full h-0.5 bg-black my-2 ml-4" />
                         </div>
 
-                        <form onSubmit={handleSubmitComment} className="my-4">
-                            <label htmlFor="content">Comentario</label>
+                        <form onSubmit={handleSubmitComment} className="my-12">
+                            <label htmlFor="content" className="font-medium">
+                                Comentario
+                            </label>
                             <textarea
                                 value={data.content}
                                 onChange={(e) =>
@@ -55,18 +57,20 @@ export default function ShowPost({ post, currency }) {
                                 }
                                 name="content"
                                 id="content"
-                                className="w-full h-20 p-2 border border-slate-300"
+                                className="w-full h-20 p-2 border border-slate-300 mt-2"
                             ></textarea>
                             {errors.content && (
                                 <p className="text-red-500">{errors.content}</p>
                             )}
-                            <button
-                                type="submit"
-                                className="bg-sky-700 text-white p-2 mt-2"
-                                disabled={processing}
-                            >
-                                Enviar
-                            </button>
+                            <div className="flex justify-end mx-2">
+                                <button
+                                    type="submit"
+                                    className="text-xl font-semibold p-2 mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-cyan-600"
+                                    disabled={processing}
+                                >
+                                    Enviar
+                                </button>
+                            </div>
                         </form>
 
                         <div className="pl-4 md:pl-10">

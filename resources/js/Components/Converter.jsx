@@ -38,21 +38,16 @@ export default function Converter({ currency }) {
     }, [selectedCurrency, convertionValue]);
 
     return (
-        <div id="convertidor" className="mt-4 max-w-[900px] mx-auto">
-            <div className="bg-sky-900 h-20 py-4 px-4 flex items-center md:px-8">
-                <div className="h-8 w-8 flex items-center">
-                    <img
-                        src="/logo-table.avif"
-                        alt=""
-                        height="155"
-                        width="108"
-                    />
-                </div>
-                <span className="text-white text-xl font-bold ml-4">
+        <div
+            id="convertidor"
+            className="mt-4 max-w-[900px] mx-auto shadow-sm border border-slate-400 rounded-md"
+        >
+            <div className=" h-20 py-4 px-4 flex items-center md:px-8 shadow-md">
+                <span className="text-xl font-bold ml-4">
                     CONVERTIDOR DE MONEDAS
                 </span>
             </div>
-            <div className="p-4 bg-blue-300">
+            <div className="p-4 ">
                 <div className="flex">
                     <input
                         type="text"
