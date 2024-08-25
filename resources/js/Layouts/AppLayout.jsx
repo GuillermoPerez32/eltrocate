@@ -12,7 +12,7 @@ export default function AppLayout({ children }) {
                 <Link href={route("home")}>
                     <ApplicationLogo />
                 </Link>
-                <div className="ml-auto flex items-center gap-4">
+                <div className="font-medium ml-auto flex items-center gap-4">
                     {auth.user ? (
                         <>
                             <a href={route("filament.admin.pages.dashboard")}>
