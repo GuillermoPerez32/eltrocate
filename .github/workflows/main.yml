@@ -21,6 +21,7 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
             cd /var/www/eltrocate/
+            git checkout -- .
             git pull
 
             COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-dev

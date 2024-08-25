@@ -46,6 +46,13 @@ export default function Converter({ currency }) {
                 <span className="text-xl font-bold ml-4">
                     CONVERTIDOR DE MONEDAS
                 </span>
+                <img
+                    src="/logo.png"
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="ml-auto"
+                />
             </div>
             <div className="p-4 ">
                 <div className="flex">

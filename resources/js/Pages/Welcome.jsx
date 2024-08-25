@@ -6,9 +6,6 @@ import { Head, Link } from "@inertiajs/react";
 export default function Welcome({ posts, currency }) {
     return (
         <AppLayout>
-            <Head>
-                <link rel="icon" href="favicon.png" type="image/png" />
-            </Head>
             {posts.length > 0 && (
                 <div className="flex flex-col md:pt-4 md:px-4 md:flex-row">
                     <div>

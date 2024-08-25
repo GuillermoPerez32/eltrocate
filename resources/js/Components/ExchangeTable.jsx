@@ -9,6 +9,13 @@ export default function ExchangeTable({ currency }) {
                 <span className="text-xl font-bold">
                     MERCADO INFORMAL DE DIVISAS EN CUBA (TIEMPO REAL)
                 </span>
+                <img
+                    src="/logo.png"
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="ml-auto"
+                />
             </div>
             <div className=" pt-2.5 pb-5 px-7">
                 {Object.keys(CURRENCY_NAMES).map((key) => (
