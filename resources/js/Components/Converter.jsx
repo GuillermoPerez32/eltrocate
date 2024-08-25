@@ -40,9 +40,9 @@ export default function Converter({ currency }) {
     return (
         <div
             id="convertidor"
-            className="mt-4 max-w-[900px] mx-auto shadow-sm border border-slate-400 rounded-md"
+            className="mt-4 max-w-[900px] mx-auto shadow-lg rounded-md"
         >
-            <div className=" h-20 py-4 px-4 flex items-center md:px-8 shadow-md">
+            <div className=" h-20 py-4 px-4 flex items-center md:px-8 shadow-md bg-cyan-200">
                 <span className="text-xl font-bold ml-4">
                     CONVERTIDOR DE MONEDAS
                 </span>

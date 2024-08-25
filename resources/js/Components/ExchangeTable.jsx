@@ -4,8 +4,8 @@ import React from "react";
 
 export default function ExchangeTable({ currency }) {
     return (
-        <div className="mt-8 max-w-[1000px] mx-auto border border-slate-400 shadow-sm rounded-md">
-            <div className=" h-20 py-4 px-4 flex items-center md:px-8 border-b  shadow">
+        <div className="mt-8 max-w-[1000px] mx-auto shadow-lg rounded-md">
+            <div className=" h-20 py-4 px-4 flex items-center md:px-8 border-b bg-cyan-200">
                 <span className="text-xl font-bold">
                     MERCADO INFORMAL DE DIVISAS EN CUBA (TIEMPO REAL)
                 </span>

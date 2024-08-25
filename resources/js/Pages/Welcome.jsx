@@ -24,7 +24,7 @@ export default function Welcome({ posts, currency }) {
                             className="hover:text-blue-900"
                             href={route("posts.show", posts[0].slug)}
                         >
-                            <h2 className="text-2xl font-semibold">
+                            <h2 className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-cyan-600">
                                 {posts[0].title}
                             </h2>
                         </Link>
@@ -72,7 +72,7 @@ export default function Welcome({ posts, currency }) {
                                 width="1218px"
                                 className="object-cover w-full h-auto"
                             />
-                            <h2 className="md:text-xl font-medium">
+                            <h2 className="md:text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-cyan-600">
                                 {post.title}
                             </h2>
                         </Link>
