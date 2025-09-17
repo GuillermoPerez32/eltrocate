@@ -16,7 +16,7 @@ jobs:
       - name: Conectar al VPS y actualizar
         uses: appleboy/ssh-action@master
         with:
-          host: 206.189.238.9
+          host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
