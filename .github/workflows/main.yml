@@ -36,5 +36,5 @@ jobs:
 
             php artisan optimize
 
-            service php8.3-fpm restart
+            service php8.2-fpm restart
             sudo service nginx restart
